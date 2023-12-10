@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Entities.Abstracts;
 
-public interface ICar
+public interface IEntity
 {
 }

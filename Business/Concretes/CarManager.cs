@@ -26,4 +26,17 @@ public class CarManager : ICarService
 
 
     }
+
+    public List<Car> GetCarsByBrandId(int id)
+    {
+        
+        return _carDal.GetAll(o => o.BrandId == id).ToList();
+
+    }
+
+    public List<Car> GetCarsByColorId(int id)
+    {
+        return _carDal.GetAll(o => o.ColorId == id).ToList();
+
+    }
 }
