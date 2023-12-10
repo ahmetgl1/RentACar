@@ -26,6 +26,10 @@ public class CarManager : ICarService
 
 
     }
+    
+
+  
+
 
     public List<Car> GetCarsByBrandId(int id)
     {
@@ -38,5 +42,20 @@ public class CarManager : ICarService
     {
         return _carDal.GetAll(o => o.ColorId == id).ToList();
 
+    }
+
+    public void AddCar(Car car)
+    {
+        if (car.Name.Length < 2)
+        {
+            throw new Exception("Araba ismi minimum 2 karakter olmalıdır.");
+        }
+
+        if (car.DailyPrice <= 0)
+        {
+            throw new Exception("Araba günlük fiyatı 0'dan büyük olmalıdır.");
+        }
+
+        _carDal.Add(car);
     }
 }
